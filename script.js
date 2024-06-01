@@ -1,3 +1,11 @@
+const hidepassword = (password)=>{
+    let hiddenpassword="";
+    for(let i=0;i<password.length;i++){
+        hiddenpassword+="*";
+    }
+    return hiddenpassword;
+}
+
 const deletePasswordData =(index) =>{
     let passwordDetails =localStorage.getItem("passwordDetails");
     let passwordData = JSON.parse(passwordDetails);
@@ -15,24 +23,30 @@ const populateSavedPaswordDetails = () => {
         table.innerHTML="No Data Available"
    } else {
         table.innerHTML=`<thead>
-            <th>Website</th>
-            <th>Email</th>
-            <th>Username</th>
-            <th>Password</th>
-            <th>Action</th>
+            <th style="background-color:lightgrey">Website</th>
+            <th style="background-color:lightgrey">Email</th>
+            <th style="background-color:lightgrey">Username</th>
+            <th style="background-color:lightgrey">Password</th>
+            <th style="background-color:lightgrey">Action</th>
         </thead>`
         let passwordData = JSON.parse(passwordDetails);
         let html="";
+        let color="whitesmoke";
 
         for (let i = 0; i < passwordData.length; i++) {
+            if(i%2==0){
+                color="whitesmoke";
+            } else {
+                color="white";
+            }
             let row = passwordData[i];
             html+=`
-                <tr>
+                <tr style="background-color:${color}">
                     <td>${row.website}</td>
                     <td>${row.email}</td>
                     <td>${row.username}</td>
-                    <td>${row.password}</td>
-                    <td><button onclick="deletePasswordData(${i})">Delete</button></td>
+                    <td>${hidepassword(row.password)}</td>
+                    <td><button class="delete-btn" onclick="deletePasswordData(${i})">Delete</button></td>
                 </tr>
             `;
         }
