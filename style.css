@@ -53,7 +53,7 @@ table, th, tr, td{
     cursor: pointer;
 }
 
-.save-btn{
+.edit-btn{
     background-color: blue;
     border: 2px solid skyblue;
     color: white;
@@ -62,6 +62,26 @@ table, th, tr, td{
     padding: 4px 20px;
     margin: 10px 0px;
 }
+.save-btn {
+    background-color: greenyellow;
+    border: 2px solid rgb(27, 180, 30);
+    color: green;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 4px 20px;
+    margin: 10px 0px;
+}
+
+.update-btn{
+    background-color: greenyellow;
+    border: 2px solid rgb(27, 180, 30);
+    color: green;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 4px 20px;
+    margin: 10px 0px;
+    
+}
 
 .form-input{
     padding: 5px 11px;
@@ -69,4 +89,8 @@ table, th, tr, td{
 
 .form-label{
     margin: 10px;
+}
+
+.copy{
+    cursor: pointer;
 }
